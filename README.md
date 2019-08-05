@@ -3,8 +3,8 @@ Building interactive smartphone browser UI for News and Moods application for Le
 
 ## Group Members
 
-Anthony Klyza
-Agni Acharyya
-Christopher Ward
-Jeremy Scott
-Nathan Haddad
+* Anthony Klyza
+* Agni Acharyya
+* Christopher Ward
+* Jeremy Scott
+* Nathan Haddad
