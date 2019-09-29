@@ -1,13 +1,17 @@
 import React from 'react';
 
+import ResultsCard    from './results-card/results-card';
+
+import              '../../index.css';
+import              './style/style.css';
 
 class ResultsPage extends React.Component
 {
   constructor(props)
   {
-    super(this);
+    super(props);
     this.state={
-      results:[],
+      data:[],
     }
   }
 
@@ -16,9 +20,13 @@ class ResultsPage extends React.Component
 
   render()
   {
-    return
-    (
-
+    return(
+      <div className="ResultsContainer">
+        <ResultsCard />
+      </div>
     );
   }
 }
+
+
+export default ResultsPage;

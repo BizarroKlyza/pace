@@ -4,6 +4,11 @@ import            '../../index.css';
 
 
 
+import Star             from '../star/starz';
+import ResultsPage      from '../results-page/results-page';
+import FooterComponent  from '../footer/footer';
+
+
 class Page extends React.Component
 {
   constructor(props)
@@ -83,7 +88,7 @@ class Page extends React.Component
     let displayedComponent=(<div>HEY THEREEEEE</div>)
     if(this.state.pageDisplay === "Results")
     {
-       displayedComponent=(<div>Results Page</div>)
+       displayedComponent=(<ResultsPage />)
     }
     if(this.state.pageDisplay === "General")
     {
@@ -137,7 +142,7 @@ class Page extends React.Component
           <div className="HeaderRow" id="headerRowTwo">
             <div className="ResultsOverviewContainer">
               <div className="LeftJustified">
-                Star Placeholder
+                <Star />
               </div>
               <div className="CentreJustified">
               </div>
@@ -157,6 +162,7 @@ class Page extends React.Component
           </div>
         </div>
         {displayedComponent}
+        <FooterComponent />
       </div>
     );
   }
