@@ -11,7 +11,7 @@ class ResultsPage extends React.Component
     }
   }
 
-  
+
 
 
   render()
