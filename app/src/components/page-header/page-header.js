@@ -4,8 +4,10 @@ import            '../../index.css';
 
 
 
-class PageHeader extends React.Component{
-  constructor(props){
+class PageHeader extends React.Component
+{
+  constructor(props)
+  {
     super(props);
     this.state={
       country:"",
@@ -24,7 +26,8 @@ class PageHeader extends React.Component{
     this.searchStringChanged = this.searchStringChanged.bind(this);
   }
 
-  searchStringChanged(e){
+  searchStringChanged(e)
+  {
     e.preventDefault();
     this.setState(
       {
@@ -52,7 +55,8 @@ class PageHeader extends React.Component{
     );
   }
 
-  resetSearchFilters(e){
+  resetSearchFilters(e)
+  {
     e.preventDefault();
 
     this.setState(
@@ -62,7 +66,8 @@ class PageHeader extends React.Component{
     )
   }
 
-  render(){
+  render()
+  {
     return(
       <div className="HeaderContainer">
         <div className="HeaderRow" id="headerRowOne">
