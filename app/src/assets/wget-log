@@ -1,0 +1,11 @@
+--2019-09-29 16:04:30--  https://www.newsandmoods.com/news/search?sstring=
+Resolving www.newsandmoods.com (www.newsandmoods.com)... 69.197.158.210
+Connecting to www.newsandmoods.com (www.newsandmoods.com)|69.197.158.210|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: unspecified [text/html]
+Saving to: ‘search?sstring=’
+
+search?sstring=         [<=>                 ]       0  --.-KB/s               search?sstring=         [ <=>                ]     244  --.-KB/s    in 0s      
+
+2019-09-29 16:04:35 (1.35 MB/s) - ‘search?sstring=’ saved [244]
+
