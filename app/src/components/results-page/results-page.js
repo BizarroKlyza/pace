@@ -17,7 +17,7 @@ class ResultsPage extends React.Component
 
 
 
-
+  //eventually will map the multiple resultcards and render
   render()
   {
     return(

@@ -11,6 +11,7 @@ import FooterComponent  from '../footer/footer';
 
 class Page extends React.Component
 {
+  //to do, the website defaults to a certain search instead of being straight on the home page
   constructor(props)
   {
     super(props);
@@ -86,6 +87,7 @@ class Page extends React.Component
   render()
   {
     let displayedComponent=(<div>HEY THEREEEEE</div>)
+    //I know, I'm a naughty boy.
     if(this.state.pageDisplay === "Results")
     {
        displayedComponent=(<ResultsPage />)
