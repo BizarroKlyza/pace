@@ -3,13 +3,13 @@ import logo from './logo.svg';
 
 import './App.css';
 
-import PageHeader from './components/page-header/page-header';
+import Page from './components/page/page';
 
 class App extends React.Component{
   render(){
     return (
       <div className="App">
-        <PageHeader></PageHeader>
+        <Page></Page>
       </div>
     );
   }

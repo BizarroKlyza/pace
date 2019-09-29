@@ -32,7 +32,10 @@ class ResultsCard extends React.Component
   }
   render()
   {
+    return
+    (
 
+    );
   }
 
 }
