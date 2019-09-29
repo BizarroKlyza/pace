@@ -93,7 +93,7 @@ class Page extends React.Component
     {
       displayedComponent=(<div>Trend Page</div>)
     }
-    if(this.state.pageDisplay === "Source ")
+    if(this.state.pageDisplay === "Source")
     {
       displayedComponent=(<div>Source Map Page</div>)
     }
