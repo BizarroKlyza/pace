@@ -1,0 +1,42 @@
+Make basic components:
+
+Website is comprised of
+1. Header
+  Contains:
+    -hamburger menu
+    -icon
+    -country status
+    -search input
+    -search button
+    -login button
+    -help button
+    -filters
+    -overall sentiment score
+    -results details
+    -reset
+    -time filter
+    -social media links
+
+2. Results page
+  Contains:
+  -Results cards
+    contains:
+    - image
+    -rating
+    -source
+    -time posted
+    -share
+    -title
+    -tags score
+    -blurb
+    -show related news option
+    -link to article
+3. General page
+  Contains:
+    -Results details
+4. Trend Page
+  contains:
+    -Graph of overall scores sentiment
+5. Source Map
+  contains:
+    -heatmap of results
