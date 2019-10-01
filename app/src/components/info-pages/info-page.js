@@ -7,6 +7,9 @@ class InfoPage extends React.Component
     constructor(props)
     {
       super(props);
+      this.state={
+        content:"Hello, I'm going to present various info pages like about us and jobs.",
+      };
     }
 
 
@@ -14,7 +17,7 @@ class InfoPage extends React.Component
     {
       return(
         <div>
-          Hello, I'm going to present various info pages like about us and jobs.
+          {this.state.content}
         </div>
       );
     }
