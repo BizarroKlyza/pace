@@ -21,7 +21,7 @@ class Page extends React.Component {
       newsCategories: "",
       timeFrom: "",
       hideFilters: false,
-      pageDisplay: ""
+      pageDisplay: "",
     };
 
     this.hideFiltersToggled = this.hideFiltersToggled.bind(this);
@@ -63,7 +63,7 @@ class Page extends React.Component {
   }
 
   render() {
-    let displayedComponent = <div>HEY THEREEEEE</div>;
+    let displayedComponent = <ResultsPage />;
     //I know, I'm a naughty boy.
     if (this.state.pageDisplay === "Results") {
       displayedComponent = <ResultsPage />;
@@ -82,12 +82,13 @@ class Page extends React.Component {
         <div className="HeaderContainer">
           <div className="HeaderRow" id="headerRowOne">
             <div className="LeftJustified">
-              <div className="HamburgerMenuContainer">Ham Placeholder</div>
-              <img alt="Logo" className="logo-img" url="#"></img>
-              <img alt="Flag" className="flag-img" url="#"></img>
+
+              <img alt="Logo" className="logo-img" src="https://www.newsandmoods.com/images/newsandmoods.png"></img>
+
             </div>
             <div className="CentreJustified">
-              <div className="SearchContainer">
+                  <div className="SearchContainer">
+                  <a className="TopOptionItem" id="left" href="#">Login</a>
                 <input
                   type="text"
                   className="SearchInput"
@@ -95,47 +96,41 @@ class Page extends React.Component {
                   onChange={e => this.searchStringChanged(e)}
                 />
                 <input type="button" value="Search" className="SearchButton" />
-                {this.state.searchString}
-              </div>
-              <div className="SearchFilterContainer" id="srchFilters">
-                <ul>
-                  <li>
-                    <a href="#">News</a>
-                  </li>
-                  <li>
-                    <a href="#">All Sentiment</a>
-                  </li>
-                  <li>
-                    <a href="#">Relevance</a>
-                  </li>
-                  <li>
-                    <a href="#">All Categories</a>
-                  </li>
-                  <li>
-                    <a href="#">Time From</a>
-                  </li>
-                </ul>
                 <input
                   type="button"
                   value="Reset"
                   onClick={e => this.resetSearchFilters(e)}
                 ></input>
+                <a className="TopOptionItem" id="right" href="#">Help</a>
+
+              </div>
+              <div className="SearchFilterContainer" id="srchFilters">
+                <ul className="SearchList">
+                  <li className="SearchFilterListItem">
+                    <a  href="#">News</a>
+                  </li>
+                  <li className="SearchFilterListItem">
+                    <a href="#">All Sentiment</a>
+                  </li>
+                  <li className="SearchFilterListItem">
+                    <a href="#">Relevance</a>
+                  </li>
+                  <li className="SearchFilterListItem">
+                    <a href="#">All Categories</a>
+                  </li>
+                  <li className="SearchFilterListItem">
+                    <a href="#">Time From</a>
+                  </li>
+                </ul>
+
               </div>
             </div>
-            <div className="RightJustified">
-              <ul>
-                <li>
-                  <a href="#">Login</a>
-                </li>
-                <li>
-                  <a href="#">Help</a>
-                </li>
-              </ul>
-            </div>
+
           </div>
 
           <div className="HeaderRow" id="headerRowTwo">
             <div className="ResultsOverviewContainer">
+              <h5>Results Of Search</h5>
               <div className="LeftJustified">
                 <Star />
               </div>
@@ -151,10 +146,10 @@ class Page extends React.Component {
               />
             </div>
             <div className="NavMenuContainer">
-              <ul>
+              <ul className="NavMenuList">
                 <li>
                   <a href="#" onClick={e => this.handleNavigation("Results")}>
-                    Results
+                      Results
                   </a>
                 </li>
                 <li>

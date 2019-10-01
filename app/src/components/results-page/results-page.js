@@ -18,6 +18,9 @@ class ResultsPage extends React.Component {
     return (
       <div className="ResultsContainer">
         <ResultsCard />
+        <ResultsCard />
+        <ResultsCard />
+        <ResultsCard />
       </div>
     );
   }

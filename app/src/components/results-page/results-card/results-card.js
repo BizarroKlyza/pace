@@ -15,8 +15,11 @@ class ResultsCard extends React.Component {
       blurb: "Man in Sydney builds a great application!",
       datePublished: "",
       img: "",
-      link: "https://www.google.com"
+      link: "https://www.google.com",
+      displayCardRowTwoStyle:'block',
+
     };
+    this.hideCardRowTwo = this.hideCardRowTwo.bind(this);
   }
   //logic for rendering card
   logicForRenderCard() {
@@ -25,17 +28,32 @@ class ResultsCard extends React.Component {
     } else {
     }
   }
+
+  hideCardRowTwo(){
+    if(this.state.displayCardRowTwoStyle==='none'){
+      this.setState({
+        displayCardRowTwoStyle:'block'
+      });
+    }
+    else{
+      this.setState({
+        displayCardRowTwoStyle:'none'
+      });
+    }
+
+  }
   render() {
     return (
       <div className="ResultsCard">
         <div className="CardRow" id="CardRowOne">
-          <img alt="Article" />
+          <img alt="Article" className="results-img" src="https://timesofindia.indiatimes.com/photo/54926158.cms"/>
           <ul>
             <li>
               <Star />
             </li>
             <li>{this.state.referrerName}</li>
             <li>{this.state.datePublished}</li>
+            <li><input type="button" onClick={(e)=>this.hideCardRowTwo()} value="Hide Text"/></li>
             <li>
               <a href="#">Share This</a>
             </li>
@@ -53,7 +71,7 @@ class ResultsCard extends React.Component {
           </ul>
           <h5>{this.state.subject}</h5>
         </div>
-        <div className="CardRow" id="CardRowTwo">
+        <div className="CardRow" style={{display:this.state.displayCardRowTwoStyle}}id="CardRowTwo">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut

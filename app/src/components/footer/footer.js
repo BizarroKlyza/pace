@@ -12,29 +12,26 @@ class FooterComponent extends React.Component {
     return (
       <div className="FooterContainer">
         <ul>
-          <li>
+          <li className="FooterListItem">
             <a href="#">About Lexxe</a>
           </li>
-          <li>
+          <li className="FooterListItem">
             <a href="#">About News & Moods</a>
           </li>
-          <li>
+          <li className="FooterListItem">
             <a href="#">Partnership</a>
           </li>
-          <li>
+          <li className="FooterListItem">
             <a href="#">Jobs</a>
           </li>
-          <li>
+          <li className="FooterListItem">
             <a href="#">Terms of use</a>
           </li>
-          <li>
+          <li className="FooterListItem">
             <a href="#">Privacy Policy</a>
           </li>
-          <li>
-            <a href="#">Contact</a>
-          </li>
         </ul>
-        <img alt="Copyright Logo Placeholder" url="#" />
+        © Lexxe 2019
       </div>
     );
   }

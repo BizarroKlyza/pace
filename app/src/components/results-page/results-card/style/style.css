@@ -3,3 +3,9 @@
     padding: 1rem;
     border: 1px solid rgba(255, 78, 65, 0.3);
 }
+.results-img{
+  width:15%;
+  float:left;
+  margin-right:10px;
+
+}
