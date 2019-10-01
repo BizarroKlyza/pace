@@ -34,13 +34,15 @@ class ResultsCard extends React.Component {
             <li>
               <Star />
             </li>
-            <li>{this.state.referrerName}</li>
+            <li className="ReferrerName">{this.state.referrerName}</li>
             <li>{this.state.datePublished}</li>
             <li>
-              <a href="#">Share This</a>
+              <a href="#" className="ShareLink">
+                Share This
+              </a>
             </li>
           </ul>
-          <ul>
+          <ul className="Tags">
             <li>
               <a href="#">Tags</a>
             </li>
