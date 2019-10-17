@@ -1,7 +1,5 @@
 import React from "react";
-
 import Star from "../../star/starz";
-
 import "./style/style.css";
 
 class ResultsCard extends React.Component {
@@ -59,8 +57,6 @@ class ResultsCard extends React.Component {
                 Share This
               </a>
             </li>
-          </ul>
-          <ul className="Tags">
             <li>
               <a href="#">Tags</a>
             </li>
@@ -71,16 +67,14 @@ class ResultsCard extends React.Component {
               <a href="#">Tags</a>
             </li>
           </ul>
-          <h5>{this.state.subject}</h5>
+          <h3 style={{'font-size':'5 rem'}}>{this.state.subject}</h3>
         </div>
         <div className="CardRow" style={{display:this.state.displayCardRowTwoStyle}}id="CardRowTwo">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          eiusmod tempor incididunt ut labore et dolore magna aliqua...
+        </div>
+        <div>
+          Related Coverage: ...
         </div>
       </div>
     );
