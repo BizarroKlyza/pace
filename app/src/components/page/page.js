@@ -2,12 +2,10 @@ import React from "react";
 
 import "../../index.css";
 import "./style/header_style.css";
-
 import Star from "../star/starz";
 
 import ResultsPage from "../results-page/results-page";
-import { Bars } from "fontawesome";
-
+import { slide as Menu } from 'react-burger-menu'
 import GeneralPage from "../general-page/general-page";
 import SourceMap from "../source-map/sourcemap";
 import TrendPage from "../trend-page/trend";
@@ -94,7 +92,7 @@ class Page extends React.Component {
             </div>
             <div className="CentreJustified">
                   <div className="SearchContainer">
-                  <a className="TopOptionItem" id="left" href="#">Login</a>
+                  <a className="TopOptionItem" id="left" href="#">=</a>
                 <input
                   type="text"
                   className="SearchInput"
@@ -107,7 +105,13 @@ class Page extends React.Component {
                   value="Reset"
                   onClick={e => this.resetSearchFilters(e)}
                 ></input>
-                <a className="TopOptionItem" id="right" href="#">Help</a>
+
+                <Menu>
+                  <a id="home" className="menu-item" href="/">Home</a>
+                  <a id="about" className="menu-item" href="/about">About</a>
+                  <a id="contact" className="menu-item" href="/contact">Contact</a>
+                  <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+                </Menu>
 
               </div>
               <div className="SearchFilterContainer" id="srchFilters">

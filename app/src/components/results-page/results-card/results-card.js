@@ -66,7 +66,7 @@ class ResultsCard extends React.Component {
         </div>
 
         <div className="post-inner-row-2 flex-container" style={{display:this.state.displayCardRowTwoStyle}}>
-          <div class="share-link">
+          <div className="share-link">
             <a href="#" className="share-link">
               Share This
             </a>
