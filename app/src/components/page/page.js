@@ -6,6 +6,7 @@ import "./style/header_style.css";
 import Star from "../star/starz";
 
 import ResultsPage from "../results-page/results-page";
+import { Bars } from "@fontawesome/react-fontawesome";
 
 import GeneralPage from "../general-page/general-page";
 import SourceMap from "../source-map/sourcemap";
@@ -87,10 +88,9 @@ class Page extends React.Component {
       <div>
         <div className="HeaderContainer">
           <div className="HeaderRow" id="headerRowOne">
+
             <div className="LeftJustified">
-
               <img alt="Logo" className="logo-img" src="https://www.newsandmoods.com/images/newsandmoods.png"></img>
-
             </div>
             <div className="CentreJustified">
                   <div className="SearchContainer">

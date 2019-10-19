@@ -3,7 +3,7 @@ import ResultsCard from "../results-card/results-card";
 import Star from "../../star/starz";
 import "./style/style.css";
 
-className ResultsTable extends React.Component {
+class ResultsTable extends React.Component {
 
   constructor(props) {
     super(props);
