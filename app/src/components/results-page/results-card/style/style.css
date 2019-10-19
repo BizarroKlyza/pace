@@ -1,10 +1,8 @@
 article.post {
     background-color: white;
     padding: 1rem;
-    border: 1px solid rgba(255, 78, 65, 0.3);
     border-radius: 8px;
     margin-bottom: 5px;
-    box-shadow: 0 1px 3px 0 rgba(255, 78, 65, 0.25);
 }
 
 .score {
@@ -15,4 +13,20 @@ article.post {
     width: 15%;
     float: left;
     margin-right: 10px;
+}
+
+/* color utility classes */
+.negative {
+    border: 1px solid rgba(255, 78, 65, 0.3);
+    box-shadow: 0 1px 3px 0 rgba(255, 78, 65, 0.25);
+}
+
+.neutral {
+    border: 1px solid rgba(255, 164, 0, 0.5);
+    box-shadow: 0 1px 3px 0 rgba(255, 164, 0, 0.25);
+}
+
+.positive {
+    border: 1px solid rgba(11, 206, 107, 0.75);
+    box-shadow: 0 1px 3px 0 rgba(11, 206, 107, 0.25);
 }
