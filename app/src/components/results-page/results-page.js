@@ -1,5 +1,7 @@
 import React from "react";
 
+
+import ResultsTable from "./results-table/results-table";
 import ResultsCard from "./results-card/results-card";
 
 import "../../index.css";
@@ -17,10 +19,7 @@ class ResultsPage extends React.Component {
   render() {
     return (
       <div className="ResultsContainer">
-        <ResultsCard />
-        <ResultsCard />
-        <ResultsCard />
-        <ResultsCard />
+        <ResultsTable />
       </div>
     );
   }

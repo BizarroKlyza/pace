@@ -6,6 +6,7 @@ import "./style/header_style.css";
 import Star from "../star/starz";
 
 import ResultsPage from "../results-page/results-page";
+
 import GeneralPage from "../general-page/general-page";
 import SourceMap from "../source-map/sourcemap";
 import TrendPage from "../trend-page/trend";
