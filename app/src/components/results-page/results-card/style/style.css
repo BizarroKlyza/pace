@@ -3,6 +3,9 @@ article.post {
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 5px;
+    /* remove this later */
+    border: 1px solid rgba(255, 78, 65, 0.3);
+    box-shadow: 0 1px 3px 0 rgba(255, 78, 65, 0.25);
 }
 
 .score {
