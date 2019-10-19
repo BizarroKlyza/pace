@@ -11,6 +11,7 @@ import SourceMap from "../source-map/sourcemap";
 import TrendPage from "../trend-page/trend";
 import FooterComponent from "../footer/footer";
 
+import {Dropdown } from 'react-bootstrap';
 
 class Page extends React.Component {
   //to do, the website defaults to a certain search instead of being straight on the home page
@@ -67,6 +68,74 @@ class Page extends React.Component {
     });
   }
 
+  // <div className="HeaderRow" id="headerRowTwo">
+  //
+  //   <div className="NavMenuContainer">
+  //     <ul className="NavMenuList">
+  //       <li>
+  //         <a href="#" onClick={e => this.handleNavigation("Results")}>
+  //             Results
+  //         </a>
+  //       </li>
+  //       <li>
+  //         <a href="#" onClick={e => this.handleNavigation("General")}>
+  //           General
+  //         </a>
+  //       </li>
+  //       <li>
+  //         <a href="#" onClick={e => this.handleNavigation("Trend")}>
+  //           Trend
+  //         </a>
+  //       </li>
+  //       <li>
+  //         <a href="#" onClick={e => this.handleNavigation("Source")}>
+  //           Source Map
+  //         </a>
+  //       </li>
+  //     </ul>
+  //   </div>
+  // </div>
+
+  //
+  // <div className="ResultsOverviewContainer">
+  //   <h5>Results Of Search</h5>
+  //   <div className="LeftJustified">
+  //     <Star />
+  //   </div>
+  //   <div className="CentreJustified"></div>
+  //   <div className="RightJustified">
+  //     About x (positive n/negative n) results from k sources and p
+  //     country.
+  //   </div>
+  //   <input
+  //     type="button"
+  //     value="Toggle Filters"
+  //     onClick={e => this.hideFiltersToggled(e)}
+  //   />
+  // </div>
+
+  // <div className="SearchFilterContainer" id="srchFilters">
+  //   <ul className="SearchList">
+  //     <li className="SearchFilterListItem">
+  //       <a  href="#">News</a>
+  //     </li>
+  //     <li className="SearchFilterListItem">
+  //       <a href="#">All Sentiment</a>
+  //     </li>
+  //     <li className="SearchFilterListItem">
+  //       <a href="#">Relevance</a>
+  //     </li>
+  //     <li className="SearchFilterListItem">
+  //       <a href="#">All Categories</a>
+  //     </li>
+  //     <li className="SearchFilterListItem">
+  //       <a href="#">Time From</a>
+  //     </li>
+  //   </ul>
+  //
+  // </div>
+
+
   render() {
     let displayedComponent = <ResultsPage />;
     //I know, I'm a naughty boy.
@@ -92,7 +161,26 @@ class Page extends React.Component {
             </div>
             <div className="CentreJustified">
                   <div className="SearchContainer">
-                  <a className="TopOptionItem" id="left" href="#">=</a>
+                  <Menu>
+                    <a id="home" className="menu-item" href="/">Home</a>
+                    <a id="about" className="menu-item" href="/about">About</a>
+                    <a id="contact" className="menu-item" href="/contact">Contact</a>
+                    <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+                  </Menu>
+
+                  <Dropdown>
+                    <Dropdown.Toggle variant="success" id="dropdown-basic">
+                      Dropdown Button
+                    </Dropdown.Toggle>
+
+                    <Dropdown.Menu>
+                      <Dropdown.Item href="#/action-1">Results</Dropdown.Item>
+                      <Dropdown.Item href="#/action-2">General</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">Source Map</Dropdown.Item>
+                      <Dropdown.Item href="#/action-3">Login</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+
                 <input
                   type="text"
                   className="SearchInput"
@@ -106,80 +194,14 @@ class Page extends React.Component {
                   onClick={e => this.resetSearchFilters(e)}
                 ></input>
 
-                <Menu>
-                  <a id="home" className="menu-item" href="/">Home</a>
-                  <a id="about" className="menu-item" href="/about">About</a>
-                  <a id="contact" className="menu-item" href="/contact">Contact</a>
-                  <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
-                </Menu>
 
               </div>
-              <div className="SearchFilterContainer" id="srchFilters">
-                <ul className="SearchList">
-                  <li className="SearchFilterListItem">
-                    <a  href="#">News</a>
-                  </li>
-                  <li className="SearchFilterListItem">
-                    <a href="#">All Sentiment</a>
-                  </li>
-                  <li className="SearchFilterListItem">
-                    <a href="#">Relevance</a>
-                  </li>
-                  <li className="SearchFilterListItem">
-                    <a href="#">All Categories</a>
-                  </li>
-                  <li className="SearchFilterListItem">
-                    <a href="#">Time From</a>
-                  </li>
-                </ul>
 
-              </div>
             </div>
 
           </div>
 
-          <div className="HeaderRow" id="headerRowTwo">
-            <div className="ResultsOverviewContainer">
-              <h5>Results Of Search</h5>
-              <div className="LeftJustified">
-                <Star />
-              </div>
-              <div className="CentreJustified"></div>
-              <div className="RightJustified">
-                About x (positive n/negative n) results from k sources and p
-                country.
-              </div>
-              <input
-                type="button"
-                value="Toggle Filters"
-                onClick={e => this.hideFiltersToggled(e)}
-              />
-            </div>
-            <div className="NavMenuContainer">
-              <ul className="NavMenuList">
-                <li>
-                  <a href="#" onClick={e => this.handleNavigation("Results")}>
-                      Results
-                  </a>
-                </li>
-                <li>
-                  <a href="#" onClick={e => this.handleNavigation("General")}>
-                    General
-                  </a>
-                </li>
-                <li>
-                  <a href="#" onClick={e => this.handleNavigation("Trend")}>
-                    Trend
-                  </a>
-                </li>
-                <li>
-                  <a href="#" onClick={e => this.handleNavigation("Source")}>
-                    Source Map
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+
         </div>
         {displayedComponent}
         <FooterComponent />

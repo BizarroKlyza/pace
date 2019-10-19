@@ -22,6 +22,10 @@ class ResultsTable extends React.Component {
         <h2>Title</h2>
         <section className="results-data-container">
           <ResultsCard />
+          <ResultsCard />
+          <ResultsCard />
+          <ResultsCard />
+
         </section>
       </section>
     );

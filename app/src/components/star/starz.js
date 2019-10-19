@@ -39,7 +39,6 @@ class Star extends React.Component
       <div className="StarDiv">
         <span className="RatingDiv" id="rateDiv">
 
-          {this.state.rating}
         </span>
         <StarRatings
           rating={this.state.rating}

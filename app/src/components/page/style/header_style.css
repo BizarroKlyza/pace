@@ -70,11 +70,11 @@ ul.NavMenuList{
 /** Burger Styles **/
 
 .bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
+  position: absolute;
+  width: 10px;
+  height: 8px;
+  left: 18px;
+  top: 8px;
 }
 
 /* Color/shape of burger icon bars */

@@ -45,7 +45,7 @@ class ResultsCard extends React.Component {
   //<li>{this.state.datePublished}</li>
   render() {
     return (
-      <article className="post">
+      <article className="post negative">
         <div className="post-inner-row flex-container" id="row-item-1">
 
           <div className="post-score">
