@@ -14,7 +14,7 @@ class ResultsCard extends React.Component {
       datePublished: "",
       img: "",
       link: "https://www.google.com",
-      displayCardRowTwoStyle:'block',
+      displayCardRowTwoStyle:'none',
 
     };
     this.hideCardRowTwo = this.hideCardRowTwo.bind(this);

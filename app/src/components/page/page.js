@@ -135,6 +135,21 @@ class Page extends React.Component {
   //
   // </div>
 
+  // function showTopButton() {
+  //             const distanceY = window.pageYOffset || document.documentElement.scrollTop,
+  //             showOn = 50,
+  //             topButton = document.querySelector('.top-button');
+  //
+  //             if (distanceY > showOn) {
+  //                 topButton.classList.add("show-button");
+  //             } else {
+  //                 topButton.classList.remove("show-button");
+  //             }
+  //         }
+  //
+  //         window.addEventListener('scroll', showTopButton;
+
+
 
   render() {
     let displayedComponent = <ResultsPage />;
@@ -162,9 +177,9 @@ class Page extends React.Component {
             <div className="CentreJustified">
                   <div className="SearchContainer">
                   <Menu>
-                    <a id="home" className="menu-item" href="/">Home</a>
-                    <a id="about" className="menu-item" href="/about">About</a>
-                    <a id="contact" className="menu-item" href="/contact">Contact</a>
+                    <a id="home" className="menu-item" href="#">Home</a>
+                    <a id="about" className="menu-item" href="#">About</a>
+                    <a id="contact" className="menu-item" href="#">Contact</a>
                     <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
                   </Menu>
 
