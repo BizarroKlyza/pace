@@ -57,14 +57,14 @@ class ResultsCard extends React.Component {
           </div>
 
           <div className="post-title">
-              <h3 style={{'font-size':'5 rem'}}>{this.state.subject}</h3>
+              <h3 style={{'fontSize':'5 rem'}}>{this.state.subject}</h3>
           </div>
 
           <div className="expandable">
             <input type="button" onClick={(e)=>this.hideCardRowTwo()} value="Expandable Placeholder"/>
           </div>
         </div>
-        
+
         <div className="post-inner-row-2 flex-container" style={{display:this.state.displayCardRowTwoStyle}}>
           <div class="share-link">
             <a href="#" className="share-link">

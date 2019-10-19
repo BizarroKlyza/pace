@@ -8,6 +8,7 @@ import "../../index.css";
 import "./style/style.css";
 
 class ResultsPage extends React.Component {
+  
   constructor(props) {
     super(props);
     this.state = {
