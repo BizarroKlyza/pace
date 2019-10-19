@@ -4,10 +4,14 @@ import "../../index.css";
 import "./style/header_style.css";
 
 import Star from "../star/starz";
+
 import ResultsPage from "../results-page/results-page";
+import GeneralPage from "../general-page/general-page";
 import SourceMap from "../source-map/sourcemap";
+import TrendPage from "../trend-page/trend";
 import FooterComponent from "../footer/footer";
-import LineChart from "../line-chart/LineChart";
+
+
 class Page extends React.Component {
   //to do, the website defaults to a certain search instead of being straight on the home page
   constructor(props) {
@@ -70,10 +74,10 @@ class Page extends React.Component {
       displayedComponent = <ResultsPage />;
     }
     if (this.state.pageDisplay === "General") {
-      displayedComponent = <div>General Page</div>;
+      displayedComponent = <GeneralPage />;
     }
     if (this.state.pageDisplay === "Trend") {
-      displayedComponent = <LineChart />;
+      displayedComponent = <TrendPage />;
     }
     if (this.state.pageDisplay === "Source") {
       displayedComponent = <SourceMap />;
