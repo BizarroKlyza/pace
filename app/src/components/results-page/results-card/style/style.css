@@ -8,8 +8,15 @@ article.post {
     box-shadow: 0 1px 3px 0 rgba(255, 78, 65, 0.25);
 }
 
-.score {
-    width: 5%;
+.post-score {
+    width: 32px;
+    height: 32px;
+    background: #FFEEED;
+    color: rgba(255, 78, 65, 0.75);
+    border-radius: 32px;
+    text-align: center;
+    line-height: 32px;
+    font-weight: bold;
 }
 
 .results-img {
