@@ -1,4 +1,16 @@
-.FooterListItem{
-  width:16%;
-  font-size:10px;
+.FooterContainer {
+    background-color: #F4F6FA;
+}
+
+.FooterListItem {
+    width: 16%;
+    font-size: 10px;
+}
+
+@media (max-width: 575.98px) {
+    .FooterListItem {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+    }
 }
