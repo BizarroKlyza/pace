@@ -14,8 +14,7 @@ class ResultsCard extends React.Component {
       datePublished: "",
       img: "",
       link: "https://www.google.com",
-      displayCardRowTwoStyle:'none',
-
+      displayCardRowTwoStyle: "none"
     };
     this.hideCardRowTwo = this.hideCardRowTwo.bind(this);
   }
@@ -27,18 +26,16 @@ class ResultsCard extends React.Component {
     }
   }
 
-  hideCardRowTwo(){
-    if(this.state.displayCardRowTwoStyle==='none'){
+  hideCardRowTwo() {
+    if (this.state.displayCardRowTwoStyle === "none") {
       this.setState({
-        displayCardRowTwoStyle:'block'
+        displayCardRowTwoStyle: "block"
+      });
+    } else {
+      this.setState({
+        displayCardRowTwoStyle: "none"
       });
     }
-    else{
-      this.setState({
-        displayCardRowTwoStyle:'none'
-      });
-    }
-
   }
 
   //  <li className="ReferrerName">{this.state.referrerName}</li>
@@ -47,25 +44,29 @@ class ResultsCard extends React.Component {
     return (
       <article className="post negative">
         <div className="post-inner-row flex-container" id="row-item-1">
-
-          <div className="post-score">
-            {this.state.sentimentScore}
-          </div>
+          <div className="post-score">{this.state.sentimentScore}</div>
 
           <div className="post-star">
-              <Star />
+            <Star />
           </div>
 
           <div className="post-title">
-              <h3 style={{'fontSize':'5 rem'}}>{this.state.subject}</h3>
+            <h3 style={{ fontSize: "5 rem" }}>{this.state.subject}</h3>
           </div>
 
           <div className="expandable">
-            <input type="button" onClick={(e)=>this.hideCardRowTwo()} value="Expandable Placeholder"/>
+            <input
+              type="button"
+              onClick={e => this.hideCardRowTwo()}
+              value="V"
+            />
           </div>
         </div>
 
-        <div className="post-inner-row-2 flex-container" style={{display:this.state.displayCardRowTwoStyle}}>
+        <div
+          className="post-inner-row-2 flex-container"
+          style={{ display: this.state.displayCardRowTwoStyle }}
+        >
           <div className="share-link">
             <a href="#" className="share-link">
               Share This
@@ -76,8 +77,6 @@ class ResultsCard extends React.Component {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua...
           </div>
-
-
         </div>
       </article>
     );

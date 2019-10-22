@@ -9,7 +9,7 @@ article.post {
 }
 
 .post-score {
-    width: 32px;
+    min-width: 32px;
     height: 32px;
     background: #FFEEED;
     color: rgba(255, 78, 65, 0.75);
@@ -19,10 +19,19 @@ article.post {
     font-weight: bold;
 }
 
+.post-title {
+    margin: -1em 0;
+    padding: 0 1rem;
+}
+
 .results-img {
     width: 15%;
     float: left;
     margin-right: 10px;
+}
+
+.post-inner-row-2 {
+    margin-top: 1rem;
 }
 
 /* color utility classes */
@@ -39,4 +48,14 @@ article.post {
 .positive {
     border: 1px solid rgba(11, 206, 107, 0.75);
     box-shadow: 0 1px 3px 0 rgba(11, 206, 107, 0.25);
+}
+
+.flex-container {
+    display: flex;
+}
+
+@media (max-width: 575.98px) {
+    .post-star {
+        display: none;
+    }
 }
