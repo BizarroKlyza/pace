@@ -1,6 +1,15 @@
 import React from "react";
 import Star from "../../star/starz";
 import "./style/style.css";
+// import the library
+import { library } from "@fortawesome/fontawesome-svg-core";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// import your icons
+import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faChevronCircleDown);
 
 class ResultsCard extends React.Component {
   constructor(props) {
@@ -55,11 +64,9 @@ class ResultsCard extends React.Component {
           </div>
 
           <div className="expandable">
-            <input
-              type="button"
-              onClick={e => this.hideCardRowTwo()}
-              value="V"
-            />
+            <button onClick={e => this.hideCardRowTwo()}>
+              <FontAwesomeIcon icon={["fas", "chevron-circle-down"]} />
+            </button>
           </div>
         </div>
 
