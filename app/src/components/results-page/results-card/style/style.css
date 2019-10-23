@@ -12,24 +12,26 @@ article.post {
 .post-score {
     min-width: 32px;
     height: 32px;
-    font-size:12px;
-
+    font-size: 12px;
     border-radius: 32px;
     text-align: center;
     line-height: 32px;
     font-weight: bold;
 }
-.post-score.negative{
-  color: rgba(255, 78, 65, 0.75);
-  background: rgba(255, 78, 65, 0.25);
+
+.post-score.negative {
+    color: rgba(255, 78, 65, 0.75);
+    background: rgba(255, 78, 65, 0.25);
 }
-.post-score.positive{
-  color: rgba(11, 206, 107, 0.75);
-  background:rgba(11, 206, 107, 0.25);
+
+.post-score.positive {
+    color: rgba(11, 206, 107, 0.75);
+    background: rgba(11, 206, 107, 0.25);
 }
-.post-score.neutral{
-  color: rgba(255, 164, 0, 0.5);
-  background: rgba(255, 164, 0, 0.25);
+
+.post-score.neutral {
+    color: rgba(255, 164, 0, 0.75);
+    background: rgba(255, 164, 0, 0.25);
 }
 
 .post-title {

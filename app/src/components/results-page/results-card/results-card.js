@@ -7,9 +7,12 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 // import your icons
-import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronCircleDown,
+  faShareAlt
+} from "@fortawesome/free-solid-svg-icons";
 
-library.add(faChevronCircleDown);
+library.add(faChevronCircleDown, faShareAlt);
 
 class ResultsCard extends React.Component {
   constructor(props) {
@@ -19,28 +22,28 @@ class ResultsCard extends React.Component {
       referrerName: "Betoota Advocate",
       referrerLink: "https://www.google.com",
       subject: this.props.Subject,
-      blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      blurb:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       datePublished: "",
       img: "",
       link: "https://www.google.com",
       displayCardRowTwoStyle: "none",
-      cardName:"",
+      cardName: ""
     };
     this.hideCardRowTwo = this.hideCardRowTwo.bind(this);
     this.logicForRenderCard = this.logicForRenderCard.bind(this);
   }
-  componentDidMount(){
+  componentDidMount() {
     this.logicForRenderCard();
   }
   //logic for rendering card
   logicForRenderCard() {
-
     if (this.state.sentimentScore === 2.5) {
-      this.setState({cardName:'neutral'})
+      this.setState({ cardName: "neutral" });
     } else if (this.state.sentimentScore < 2.5) {
-      this.setState({cardName:'negative'})
+      this.setState({ cardName: "negative" });
     } else {
-      this.setState({cardName:'positive'})
+      this.setState({ cardName: "positive" });
     }
   }
 
@@ -62,10 +65,12 @@ class ResultsCard extends React.Component {
     return (
       <article className={"post " + this.state.cardName}>
         <div className="post-inner-row flex-container" id="row-item-1">
-          <div className={"post-score "+this.state.cardName}>{this.state.sentimentScore}/5</div>
+          <div className={"post-score " + this.state.cardName}>
+            {this.state.sentimentScore}
+          </div>
 
           <div className="post-star">
-            <Star SentimentScore={this.state.sentimentScore}/>
+            <Star SentimentScore={this.state.sentimentScore} />
           </div>
 
           <div className="post-title">
@@ -85,7 +90,7 @@ class ResultsCard extends React.Component {
         >
           <div className="share-link">
             <a href="#" className="share-link">
-              Share This
+              <FontAwesomeIcon icon={["fas", "share-alt"]} />
             </a>
           </div>
 
