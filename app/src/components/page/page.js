@@ -207,7 +207,7 @@ class Page extends React.Component {
                   <DropdownButton onClick={()=>this.setState({show:!this.state.show})} id="dropdown-basic-button" title="Dropdown button">
                     {options}
                   </DropdownButton>
-
+                
                 <input
                   type="text"
                   className="SearchInput"
