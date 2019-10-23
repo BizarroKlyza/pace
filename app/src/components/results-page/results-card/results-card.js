@@ -62,7 +62,7 @@ class ResultsCard extends React.Component {
     return (
       <article className={"post " + this.state.cardName}>
         <div className="post-inner-row flex-container" id="row-item-1">
-          <div className={"post-score "+this.state.cardName}>{this.state.sentimentScore}/5</div>
+          <div className={"post-score "+this.state.cardName}>{this.state.sentimentScore}</div>
 
           <div className="post-star">
             <Star SentimentScore={this.state.sentimentScore}/>
