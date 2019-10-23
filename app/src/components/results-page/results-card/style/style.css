@@ -3,20 +3,33 @@ article.post {
     padding: 1rem;
     border-radius: 8px;
     margin-bottom: 5px;
-    /* remove this later */
+    /* remove this later
     border: 1px solid rgba(255, 78, 65, 0.3);
     box-shadow: 0 1px 3px 0 rgba(255, 78, 65, 0.25);
+    */
 }
 
 .post-score {
     min-width: 32px;
     height: 32px;
-    background: #FFEEED;
-    color: rgba(255, 78, 65, 0.75);
+    font-size:12px;
+
     border-radius: 32px;
     text-align: center;
     line-height: 32px;
     font-weight: bold;
+}
+.post-score.negative{
+  color: rgba(255, 78, 65, 0.75);
+  background: rgba(255, 78, 65, 0.25);
+}
+.post-score.positive{
+  color: rgba(11, 206, 107, 0.75);
+  background:rgba(11, 206, 107, 0.25);
+}
+.post-score.neutral{
+  color: rgba(255, 164, 0, 0.5);
+  background: rgba(255, 164, 0, 0.25);
 }
 
 .post-title {

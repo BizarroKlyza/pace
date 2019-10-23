@@ -7,7 +7,7 @@ class Star extends React.Component
   constructor(props){
     super(props);
     this.state={
-      rating:1,
+      rating:this.props.SentimentScore,
       colour:"",
     };
     this.CalculateColour = this.CalculateColour.bind(this);

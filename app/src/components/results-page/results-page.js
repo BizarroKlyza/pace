@@ -8,7 +8,7 @@ import "../../index.css";
 import "./style/style.css";
 
 class ResultsPage extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -20,7 +20,8 @@ class ResultsPage extends React.Component {
   render() {
     return (
       <div className="ResultsContainer">
-        <ResultsTable />
+        <ResultsTable Title={"Popular News"}/>
+        <ResultsTable Title={"International News"}/>
       </div>
     );
   }

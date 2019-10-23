@@ -11,7 +11,7 @@ import SourceMap from "../source-map/sourcemap";
 import TrendPage from "../trend-page/trend";
 import FooterComponent from "../footer/footer";
 
-import {Dropdown } from 'react-bootstrap';
+import {Dropdown,DropdownButton } from 'react-bootstrap';
 
 class Page extends React.Component {
   //to do, the website defaults to a certain search instead of being straight on the home page
@@ -166,6 +166,15 @@ class Page extends React.Component {
     if (this.state.pageDisplay === "Source") {
       displayedComponent = <SourceMap />;
     }
+    let options="";
+    if(this.state.show){
+      options=(<div>
+        <ul><li><Dropdown.Item onClick={()=>{this.setState({pageDisplay:'Results'})}}>Results</Dropdown.Item></li>
+              <li><Dropdown.Item onClick={()=>{this.setState({pageDisplay:'General'})}}>General</Dropdown.Item></li>
+              <li>  <Dropdown.Item onClick={()=>{this.setState({pageDisplay:'Source'})}}>Source Map</Dropdown.Item></li>
+              <li>  <Dropdown.Item onClick={()=>{this.setState({pageDisplay:'Results'})}}>Login</Dropdown.Item></li></ul></div>
+    )
+  }
     return (
       <div>
         <div className="HeaderContainer">
@@ -177,24 +186,27 @@ class Page extends React.Component {
             <div className="CentreJustified">
                   <div className="SearchContainer">
                   <Menu>
-                    <a id="home" className="menu-item" href="#">Home</a>
-                    <a id="about" className="menu-item" href="#">About</a>
-                    <a id="contact" className="menu-item" href="#">Contact</a>
-                    <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
+                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
+                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
+                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
+                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
+                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
+                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
+                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
+                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
                   </Menu>
 
-                  <Dropdown>
-                    <Dropdown.Toggle variant="success" id="dropdown-basic">
-                      Dropdown Button
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu>
-                      <Dropdown.Item href="#/action-1">Results</Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">General</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Source Map</Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">Login</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
+                  <DropdownButton onClick={()=>this.setState({show:!this.state.show})} id="dropdown-basic-button" title="Dropdown button">
+                    {options}
+                  </DropdownButton>
 
                 <input
                   type="text"

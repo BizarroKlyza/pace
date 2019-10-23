@@ -15,23 +15,32 @@ class ResultsCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sentimentScore: -1,
+      sentimentScore: this.props.SentimentScore,
       referrerName: "Betoota Advocate",
       referrerLink: "https://www.google.com",
-      subject: "Man in Sydney builds a great application",
-      blurb: "Man in Sydney builds a great application!",
+      subject: this.props.Subject,
+      blurb: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       datePublished: "",
       img: "",
       link: "https://www.google.com",
-      displayCardRowTwoStyle: "none"
+      displayCardRowTwoStyle: "none",
+      cardName:"",
     };
     this.hideCardRowTwo = this.hideCardRowTwo.bind(this);
+    this.logicForRenderCard = this.logicForRenderCard.bind(this);
+  }
+  componentDidMount(){
+    this.logicForRenderCard();
   }
   //logic for rendering card
   logicForRenderCard() {
+
     if (this.state.sentimentScore === 2.5) {
+      this.setState({cardName:'neutral'})
     } else if (this.state.sentimentScore < 2.5) {
+      this.setState({cardName:'negative'})
     } else {
+      this.setState({cardName:'positive'})
     }
   }
 
@@ -51,12 +60,12 @@ class ResultsCard extends React.Component {
   //<li>{this.state.datePublished}</li>
   render() {
     return (
-      <article className="post negative">
+      <article className={"post " + this.state.cardName}>
         <div className="post-inner-row flex-container" id="row-item-1">
-          <div className="post-score">{this.state.sentimentScore}</div>
+          <div className={"post-score "+this.state.cardName}>{this.state.sentimentScore}/5</div>
 
           <div className="post-star">
-            <Star />
+            <Star SentimentScore={this.state.sentimentScore}/>
           </div>
 
           <div className="post-title">
