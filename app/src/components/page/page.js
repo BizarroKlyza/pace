@@ -10,9 +10,10 @@ import GeneralPage from "../general-page/general-page";
 import SourceMap from "../source-map/sourcemap";
 import TrendPage from "../trend-page/trend";
 import FooterComponent from "../footer/footer";
-
+import axios from 'axios';
 import {Dropdown,DropdownButton } from 'react-bootstrap';
 
+const NEWS_AND_MOODS_URL = "https://www.newsandmoods.com"
 class Page extends React.Component {
   //to do, the website defaults to a certain search instead of being straight on the home page
   constructor(props) {
@@ -28,14 +29,45 @@ class Page extends React.Component {
       timeFrom: "",
       hideFilters: false,
       pageDisplay: "",
+      sortMethod:10,
+      searchMode:4,
+      country:'au',
+      hostCountry:'au',
+      error:false,
+      errorMessage:'',
+      response:null,
+      totalDocs:0,
+      totalPositive:0,
+      totalNeutral:0,
+      totalNegative:0,
     };
 
     this.hideFiltersToggled = this.hideFiltersToggled.bind(this);
     this.resetSearchFilters = this.resetSearchFilters.bind(this);
     this.searchStringChanged = this.searchStringChanged.bind(this);
     this.handleNavigation = this.handleNavigation.bind(this);
+    this.PerformSearch = this.PerformSearch.bind(this);
   }
 
+  PerformSearch(e){
+    window.alert(NEWS_AND_MOODS_URL+'/app/news/search?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2');
+    axios.get(NEWS_AND_MOODS_URL+'/app/news/search?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2',{headers:{headers: { "Access-Control-Allow-Origin": "*" }}}).then((response)=>{
+      window.alert(response.generalStats);
+      this.setState({
+        response:response,
+        GeneralStats:response.generalStats,
+        totalPositive:response.generalStats.positiveCount,
+        totalDocs:response.generalStats.totalDocCnt,
+        totalNegative:response.generalStats.negativeCount,
+        totalNeutral:response.generalStats.neutralCount,
+      })
+    },(err)=>{
+      window.alert("Error");
+      window.alert(err);
+      this.setState({error:true,errorMessage:err})
+    });
+
+  }
   searchStringChanged(e) {
     e.preventDefault();
     this.setState({
@@ -207,14 +239,15 @@ class Page extends React.Component {
                   <DropdownButton onClick={()=>this.setState({show:!this.state.show})} id="dropdown-basic-button" title="Dropdown button">
                     {options}
                   </DropdownButton>
-                
+
                 <input
                   type="text"
                   className="SearchInput"
                   value={this.state.searchString}
                   onChange={e => this.searchStringChanged(e)}
                 />
-                <input type="button" value="Search" className="SearchButton" />
+                  {this.state.totalDocs}
+                <input type="button" value="Search" onClick={(e)=>this.PerformSearch(e)}className="SearchButton" />
                 <input
                   type="button"
                   value="Reset"
