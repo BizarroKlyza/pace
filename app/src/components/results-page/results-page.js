@@ -20,8 +20,7 @@ class ResultsPage extends React.Component {
   render() {
     return (
       <div className="ResultsContainer">
-        <ResultsTable Title={"Popular News"}/>
-        <ResultsTable Title={"International News"}/>
+        <ResultsTable Title={"News"} NewsItems={this.props.NewsItems}/>
       </div>
     );
   }

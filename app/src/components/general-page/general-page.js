@@ -10,7 +10,7 @@ class GeneralPage extends React.Component{
   render(){
     return(
        <div class="">
-        <BreakdownPieChart />
+        <BreakdownPieChart GeneralStats={this.props.GeneralStats} />
        </div>);
   }
 }

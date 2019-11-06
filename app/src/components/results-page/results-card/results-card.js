@@ -18,15 +18,15 @@ class ResultsCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sentimentScore: this.props.SentimentScore,
-      referrerName: "Betoota Advocate",
-      referrerLink: "https://www.google.com",
+      sentimentScore:Math.round(this.props.SentimentScore * 10) / 10,
+      referrerName: this.props.Source,
+      referrerLink: this.props.Url,
       subject: this.props.Subject,
       blurb:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        this.props.Content,
       datePublished: "",
       img: "",
-      link: "https://www.google.com",
+      link: this.props.url,
       displayCardRowTwoStyle: "none",
       cardName: ""
     };
@@ -95,10 +95,9 @@ class ResultsCard extends React.Component {
           </div>
 
           <div className="post-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua...
+          {this.state.blurb}
           </div>
-          <a href="#">Go To Article</a>
+          <a href={this.props.Url}>Go To Article</a>
         </div>
       </article>
     );

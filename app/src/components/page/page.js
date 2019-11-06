@@ -40,6 +40,8 @@ class Page extends React.Component {
       totalPositive:0,
       totalNeutral:0,
       totalNegative:0,
+      GeneralStats:0,
+      NewsItems:[],
     };
 
     this.hideFiltersToggled = this.hideFiltersToggled.bind(this);
@@ -47,19 +49,23 @@ class Page extends React.Component {
     this.searchStringChanged = this.searchStringChanged.bind(this);
     this.handleNavigation = this.handleNavigation.bind(this);
     this.PerformSearch = this.PerformSearch.bind(this);
-  }
 
+  }
+  componentDidMount(){
+    this.PerformSearch("Hi");
+  }
   PerformSearch(e){
-    window.alert(NEWS_AND_MOODS_URL+'/app/news/search?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2');
-    axios.get(NEWS_AND_MOODS_URL+'/app/news/search?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2',{headers:{headers: { "Access-Control-Allow-Origin": "*" }}}).then((response)=>{
-      window.alert(response.generalStats);
+
+    axios.get(NEWS_AND_MOODS_URL+'/app?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2',{headers:{headers: { "Access-Control-Allow-Origin": "*" }}}).then((response)=>{
+
       this.setState({
-        response:response,
-        GeneralStats:response.generalStats,
-        totalPositive:response.generalStats.positiveCount,
-        totalDocs:response.generalStats.totalDocCnt,
-        totalNegative:response.generalStats.negativeCount,
-        totalNeutral:response.generalStats.neutralCount,
+        response:response.data,
+        GeneralStats:response.data.generalStats,
+        totalPositive:response.data.generalStats.positiveCount,
+        totalDocs:response.data.generalStats.totalDocCnt,
+        totalNegative:response.data.generalStats.negativeCount,
+        totalNeutral:response.data.generalStats.neutralCount,
+        NewsItems:response.data.news,
       })
     },(err)=>{
       window.alert("Error");
@@ -184,13 +190,13 @@ class Page extends React.Component {
 
 
   render() {
-    let displayedComponent = <ResultsPage />;
+    let displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} />;
     //I know, I'm a naughty boy.
     if (this.state.pageDisplay === "Results") {
-      displayedComponent = <ResultsPage />;
+      displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} />;
     }
     if (this.state.pageDisplay === "General") {
-      displayedComponent = <GeneralPage />;
+      displayedComponent = <GeneralPage GeneralStats={this.state.GeneralStats} />;
     }
     if (this.state.pageDisplay === "Trend") {
       displayedComponent = <TrendPage />;
@@ -246,7 +252,7 @@ class Page extends React.Component {
                   value={this.state.searchString}
                   onChange={e => this.searchStringChanged(e)}
                 />
-                  {this.state.totalDocs}
+                  
                 <input type="button" value="Search" onClick={(e)=>this.PerformSearch(e)}className="SearchButton" />
                 <input
                   type="button"

@@ -4,9 +4,6 @@ import {
 } from 'recharts';
 
 const data = [
-  { name: 'Negative', value: 400 },
-  { name: 'Positive', value: 300 },
-  { name: 'Neutral', value: 300 },
 
 ];
 
@@ -30,13 +27,21 @@ const renderCustomizedLabel = ({
 };
 
 export default class BreakdownPieChart extends PureComponent {
+  constructor(props){
+    super(props);
+    this.state={
+      data:  [{ name: 'Negative', value: this.props.GeneralStats.negativeCount },
+        { name: 'Positive', value: this.props.GeneralStats.positiveCount },
+        { name: 'Neutral', value: this.props.GeneralStats.neutralCount },]
 
+    }
+  }
 
   render() {
     return (
       <PieChart width={400} height={400}>
         <Pie
-          data={data}
+          data={this.state.data}
           cx={200}
           cy={200}
           labelLine={false}
@@ -46,7 +51,7 @@ export default class BreakdownPieChart extends PureComponent {
           dataKey="value"
         >
           {
-            data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
+            this.state.data.map((entry, index) => <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />)
           }
 
         </Pie>

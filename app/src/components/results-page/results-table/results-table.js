@@ -14,7 +14,9 @@ class ResultsTable extends React.Component {
   }
 
   //logic for rendering card
+  componentDidMount(){
 
+  }
   generateRandom(){
     let n = 1;
     let y=5;
@@ -23,32 +25,16 @@ class ResultsTable extends React.Component {
     return(Math.round(math*10)/10);
   }
   render() {
+    let newsCards=(<div/>)
+    if(this.props.NewsItems){
+      newsCards = this.props.NewsItems.map((i)=>  <ResultsCard SentimentScore={i.sscore} Content={i.content} Source={i.source} Url={i.url} Subject={i.title}/> )
+    }
     return (
       <section className="results-table">
         <h2 style={{textDecoration:'underline'}}>{this.props.Title}</h2>
         <section className="results-data-container">
-          <ResultsCard SentimentScore={1} Subject={"10 Reasons to love Cats"}/>
-          <ResultsCard SentimentScore={5} Subject={"10 Reasons to love Dogs"}/>
-          <ResultsCard SentimentScore={2.5} Subject={"We Love Pigs. They are great."}/>
-          <ResultsCard SentimentScore={3} Subject={"You won't believe our top 10 tips on baking!"}/>
-          <ResultsCard SentimentScore={5} Subject={"Men in Sydney build great application"}/>
-          <ResultsCard SentimentScore={1} Subject={"The market is crashing and so is your laptop"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={2.5} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
-          <ResultsCard SentimentScore={this.generateRandom()} Subject={"Placeholder Article Title"} />
+
+          {newsCards}
         </section>
       </section>
     );
