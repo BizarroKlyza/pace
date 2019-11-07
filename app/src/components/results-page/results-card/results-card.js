@@ -18,12 +18,11 @@ class ResultsCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      sentimentScore:Math.round(this.props.SentimentScore * 10) / 10,
+      sentimentScore: Math.round(this.props.SentimentScore * 10) / 10,
       referrerName: this.props.Source,
       referrerLink: this.props.Url,
       subject: this.props.Subject,
-      blurb:
-        this.props.Content,
+      blurb: this.props.Content,
       datePublished: "",
       img: "",
       link: this.props.url,
@@ -74,12 +73,17 @@ class ResultsCard extends React.Component {
           </div>
 
           <div className="post-title">
-            <h3 style={{ fontSize: "5 rem" }}>{this.state.subject}</h3>
+            <h3 style={{ fontSize: "5 rem" }}>
+              <a href={this.props.Url}>{this.state.subject}</a>
+            </h3>
           </div>
 
           <div className="expandable">
             <button onClick={e => this.hideCardRowTwo()}>
-              <FontAwesomeIcon icon={["fas", "chevron-circle-down"]} />
+              <FontAwesomeIcon
+                icon={["fas", "chevron-circle-down"]}
+                style={{ fontSize: "1.25rem" }}
+              />
             </button>
           </div>
         </div>
@@ -94,9 +98,7 @@ class ResultsCard extends React.Component {
             </a>
           </div>
 
-          <div className="post-text">
-          {this.state.blurb}
-          </div>
+          <div className="post-text">{this.state.blurb}</div>
           <a href={this.props.Url}>Go To Article</a>
         </div>
       </article>
