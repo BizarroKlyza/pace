@@ -42,6 +42,7 @@ class Page extends React.Component {
       totalNegative:0,
       GeneralStats:0,
       NewsItems:[],
+      loading:false,
     };
 
     this.hideFiltersToggled = this.hideFiltersToggled.bind(this);
@@ -55,7 +56,9 @@ class Page extends React.Component {
     this.PerformSearch("Hi");
   }
   PerformSearch(e){
-
+    this.setState({
+      loading:true,
+    })
     axios.get(NEWS_AND_MOODS_URL+'/app?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2',{headers:{headers: { "Access-Control-Allow-Origin": "*" }}}).then((response)=>{
 
       this.setState({
@@ -66,11 +69,13 @@ class Page extends React.Component {
         totalNegative:response.data.generalStats.negativeCount,
         totalNeutral:response.data.generalStats.neutralCount,
         NewsItems:response.data.news,
+        loading: false,
+
       })
     },(err)=>{
       window.alert("Error");
       window.alert(err);
-      this.setState({error:true,errorMessage:err})
+      this.setState({error:true,errorMessage:err, loading:false})
     });
 
   }
@@ -204,6 +209,14 @@ class Page extends React.Component {
     if (this.state.pageDisplay === "Source") {
       displayedComponent = <SourceMap />;
     }
+    if(this.state.loading===true){
+      displayedComponent=(
+        <div>
+          <text>
+          Loading...
+          </text>
+        </div>);
+    }
     let options="";
     if(this.state.show){
       options=(<div>
@@ -213,6 +226,7 @@ class Page extends React.Component {
               <li>  <Dropdown.Item onClick={()=>{this.setState({pageDisplay:'Results'})}}>Login</Dropdown.Item></li></ul></div>
     )
   }
+
     return (
       <div>
         <div className="HeaderContainer">
@@ -252,7 +266,7 @@ class Page extends React.Component {
                   value={this.state.searchString}
                   onChange={e => this.searchStringChanged(e)}
                 />
-                  
+
                 <input type="button" value="Search" onClick={(e)=>this.PerformSearch(e)}className="SearchButton" />
                 <input
                   type="button"
