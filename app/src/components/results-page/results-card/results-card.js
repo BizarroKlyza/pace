@@ -82,7 +82,7 @@ class ResultsCard extends React.Component {
             <button onClick={e => this.hideCardRowTwo()}>
               <FontAwesomeIcon
                 icon={["fas", "chevron-circle-down"]}
-                style={{ fontSize: "1.25rem" }}
+                style={{ fontSize: "1.5rem" }}
               />
             </button>
           </div>
