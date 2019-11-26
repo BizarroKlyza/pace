@@ -31,14 +31,9 @@ class FooterComponent extends React.Component {
             <a href="#">Privacy Policy</a>
           </li>
         </ul>
-        <span>
-          go to top placeholder
-        </span>
+
         © Lexxe 2019
 
-        <span>
-          social media links placeholder
-        </span>
 
 
 

@@ -27,7 +27,8 @@ class ResultsCard extends React.Component {
       img: "",
       link: this.props.url,
       displayCardRowTwoStyle: "none",
-      cardName: ""
+      cardName: "",
+      expandableName:"expandable",
     };
     this.hideCardRowTwo = this.hideCardRowTwo.bind(this);
     this.logicForRenderCard = this.logicForRenderCard.bind(this);
@@ -50,11 +51,21 @@ class ResultsCard extends React.Component {
     if (this.state.displayCardRowTwoStyle === "none") {
       this.setState({
         displayCardRowTwoStyle: "block"
+
       });
     } else {
       this.setState({
         displayCardRowTwoStyle: "none"
       });
+    }
+    if(this.state.expandableName==="expandable"){
+      this.setState({
+        expandableName:"expandable rotateButton"
+      })
+    }else{
+      this.setState({
+        expandableName:"expandable"
+      })
     }
   }
 
@@ -78,7 +89,7 @@ class ResultsCard extends React.Component {
             </h3>
           </div>
 
-          <div className="expandable">
+          <div className={this.state.expandableName}>
             <button onClick={e => this.hideCardRowTwo()}>
               <FontAwesomeIcon
                 icon={["fas", "chevron-circle-down"]}

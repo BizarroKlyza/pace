@@ -238,25 +238,15 @@ class Page extends React.Component {
             <div className="CentreJustified">
                   <div className="SearchContainer">
                   <Menu>
-                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
-                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
-                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
-                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
-                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
-                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
-                    <a id="home" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="about" className="menu-item" href="#">Filter Option Item</a>
-                    <a id="contact" className="menu-item" href="#">Filter Option Item</a>
-                    <a onClick={ this.showSettings } className="menu-item--small" href="">Filter Option Item</a>
+                    <label>Country</label>
+                    <input></input>
+                    <label>News Topic</label>
+                    <input ></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
                   </Menu>
 
-                  <DropdownButton onClick={()=>this.setState({show:!this.state.show})} id="dropdown-basic-button" title="Dropdown button">
+                  <DropdownButton onClick={()=>this.setState({show:!this.state.show})} id="dropdown-basic-button" title="Menu">
                     {options}
                   </DropdownButton>
 
