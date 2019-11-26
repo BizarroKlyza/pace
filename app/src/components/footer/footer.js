@@ -7,7 +7,7 @@ class FooterComponent extends React.Component {
   constructor(props) {
     super(props);
   }
-
+  //footer components
   render() {
     return (
       <div className="FooterContainer">

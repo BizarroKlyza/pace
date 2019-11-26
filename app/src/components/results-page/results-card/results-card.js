@@ -17,8 +17,9 @@ library.add(faChevronCircleDown, faShareAlt);
 class ResultsCard extends React.Component {
   constructor(props) {
     super(props);
+    //constructing state 
     this.state = {
-      sentimentScore: Math.round(this.props.SentimentScore * 10) / 10,
+      sentimentScore: Math.round(this.props.SentimentScore * 10) / 10, //appropriately rounding the sentiment score 
       referrerName: this.props.Source,
       referrerLink: this.props.Url,
       subject: this.props.Subject,
@@ -37,6 +38,7 @@ class ResultsCard extends React.Component {
     this.logicForRenderCard();
   }
   //logic for rendering card
+  //determining the card class name, changing the styling 
   logicForRenderCard() {
     if (this.state.sentimentScore === 2.5) {
       this.setState({ cardName: "neutral" });
@@ -46,7 +48,7 @@ class ResultsCard extends React.Component {
       this.setState({ cardName: "positive" });
     }
   }
-
+  //hide card details based on toggle 
   hideCardRowTwo() {
     if (this.state.displayCardRowTwoStyle === "none") {
       this.setState({

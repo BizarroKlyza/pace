@@ -16,6 +16,7 @@ import {Dropdown,DropdownButton } from 'react-bootstrap';
 const NEWS_AND_MOODS_URL = "https://www.newsandmoods.com"
 class Page extends React.Component {
   //to do, the website defaults to a certain search instead of being straight on the home page
+  //constructing of state
   constructor(props) {
     super(props);
     this.state = {
@@ -44,7 +45,7 @@ class Page extends React.Component {
       NewsItems:[],
       loading:false,
     };
-
+    //binding functions to component
     this.hideFiltersToggled = this.hideFiltersToggled.bind(this);
     this.resetSearchFilters = this.resetSearchFilters.bind(this);
     this.searchStringChanged = this.searchStringChanged.bind(this);
@@ -52,14 +53,16 @@ class Page extends React.Component {
     this.PerformSearch = this.PerformSearch.bind(this);
 
   }
+  //perform search on default load
   componentDidMount(){
     this.PerformSearch("Hi");
   }
+  //perform get request to lexxe, dependent on non cors issues right now. Access control allow origins issues
   PerformSearch(e){
     this.setState({
       loading:true,
     })
-    axios.get(NEWS_AND_MOODS_URL+'/app?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2',{headers:{headers: { "Access-Control-Allow-Origin": "*" }}}).then((response)=>{
+    axios.get(NEWS_AND_MOODS_URL+'/app?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2').then((response)=>{
 
       this.setState({
         response:response.data,
@@ -73,18 +76,20 @@ class Page extends React.Component {
 
       })
     },(err)=>{
-      window.alert("Error");
-      window.alert(err);
+      // window.alert("Error");
+      // window.alert(err);
       this.setState({error:true,errorMessage:err, loading:false})
     });
 
   }
+  //updater of search string 
   searchStringChanged(e) {
     e.preventDefault();
     this.setState({
       searchString: e.currentTarget.value
     });
   }
+  //hide search filters function
   hideFiltersToggled(e) {
     e.preventDefault();
     if (this.state.hideFilters === true) {
@@ -97,7 +102,7 @@ class Page extends React.Component {
       hideFilters: !this.state.hideFilters
     });
   }
-
+  //reset filters function
   resetSearchFilters(e) {
     e.preventDefault();
 
@@ -105,6 +110,7 @@ class Page extends React.Component {
       searchString: ""
     });
   }
+  //'change page' function
   handleNavigation(arg) {
     this.setState({
       pageDisplay: arg
@@ -196,7 +202,8 @@ class Page extends React.Component {
 
   render() {
     let displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} />;
-    //I know, I'm a naughty boy.
+    //if statement switch for rendering different pages
+    //pass data as props to children as needed
     if (this.state.pageDisplay === "Results") {
       displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} />;
     }
@@ -218,6 +225,7 @@ class Page extends React.Component {
         </div>);
     }
     let options="";
+    //nav menu
     if(this.state.show){
       options=(<div>
         <ul><li><Dropdown.Item onClick={()=>{this.setState({pageDisplay:'Results'})}}>Results</Dropdown.Item></li>
@@ -226,7 +234,7 @@ class Page extends React.Component {
               <li>  <Dropdown.Item onClick={()=>{this.setState({pageDisplay:'Results'})}}>Login</Dropdown.Item></li></ul></div>
     )
   }
-
+  //where the HTML gets rendered 
     return (
       <div>
         <div className="HeaderContainer">

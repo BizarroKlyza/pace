@@ -7,24 +7,18 @@ class ResultsTable extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.generateRandom = this.generateRandom.bind(this);
+   
   }
 
   //logic for rendering card
   componentDidMount() {}
-  generateRandom() {
-    let n = 1;
-    let y = 5;
-
-    let math = n + Math.random() * (y - n);
-    return Math.round(math * 10) / 10;
-  }
+ 
   render() {
     let newsCards = <div />;
-    if (this.props.NewsItems) {
+    if (this.props.NewsItems) { //map out news cards for all news articles in response
       newsCards = this.props.NewsItems.map(i => (
         <ResultsCard
-          SentimentScore={i.sscore}
+          SentimentScore={i.sscore} // passing values to card components as props
           Content={i.content}
           Source={i.source}
           Url={i.url}

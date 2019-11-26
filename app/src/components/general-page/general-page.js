@@ -6,7 +6,7 @@ class GeneralPage extends React.Component{
 
     this.state={};
   }
-
+  //render pie chart based on breakdown
   render(){
     return(
        <div class="">
