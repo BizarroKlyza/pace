@@ -1,0 +1,3 @@
+The App.js is the root of the application, it renders the 'page' component which is the parent of all sub components.
+From there the various pages are loaded in and out of the dom based on the state of the page component.
+There is an issue with the backend regarding CORS, as the application runs under localhost:3000, you may need to disable cors in your browser to debug
