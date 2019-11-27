@@ -43,6 +43,8 @@ class Page extends React.Component {
       totalNegative:0,
       GeneralStats:0,
       NewsItems:[],
+      timeEnd:'10259980',
+      timeStart:'10259260',
       loading:false,
     };
     //binding functions to component
@@ -51,7 +53,7 @@ class Page extends React.Component {
     this.searchStringChanged = this.searchStringChanged.bind(this);
     this.handleNavigation = this.handleNavigation.bind(this);
     this.PerformSearch = this.PerformSearch.bind(this);
-
+    this.calculateTimeBetweenNowAndThen = this.calculateTimeBetweenNowAndThen.bind(this);
   }
   //perform search on default load
   componentDidMount(){
@@ -62,7 +64,7 @@ class Page extends React.Component {
     this.setState({
       loading:true,
     })
-    axios.get(NEWS_AND_MOODS_URL+'/app?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts=10259260&te=10259980&td=-600&date=2').then((response)=>{
+    axios.get(NEWS_AND_MOODS_URL+'/app?sstring='+this.state.searchString+'&src=qh&sort='+this.state.sortMethod+'&menu=1&mode='+this.state.searchMode+'&country='+this.state.country+'&host='+this.state.hostCountry+'&ts='+this.state.timeStart+'&te='+this.state.timeEnd+'&td=-600&date=2').then((response)=>{
 
       this.setState({
         response:response.data,
@@ -82,7 +84,16 @@ class Page extends React.Component {
     });
 
   }
-  //updater of search string 
+  calculateTimeBetweenNowAndThen(time){
+    var today = new Date();
+    var date = new Date(time);
+    var diffMs = (date - today); // milliseconds between now & Christmas
+    var diffDays = Math.floor(diffMs / 86400000); // days
+    var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
+    var diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000); // minutes
+    return diffMins;
+  }
+  //updater of search string
   searchStringChanged(e) {
     e.preventDefault();
     this.setState({
@@ -201,11 +212,11 @@ class Page extends React.Component {
 
 
   render() {
-    let displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} />;
+    let displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} GeneralStats={this.state.GeneralStats} />;
     //if statement switch for rendering different pages
     //pass data as props to children as needed
     if (this.state.pageDisplay === "Results") {
-      displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} />;
+      displayedComponent = <ResultsPage NewsItems={this.state.NewsItems} GeneralStats={this.state.GeneralStats} />;
     }
     if (this.state.pageDisplay === "General") {
       displayedComponent = <GeneralPage GeneralStats={this.state.GeneralStats} />;
@@ -234,7 +245,7 @@ class Page extends React.Component {
               <li>  <Dropdown.Item onClick={()=>{this.setState({pageDisplay:'Results'})}}>Login</Dropdown.Item></li></ul></div>
     )
   }
-  //where the HTML gets rendered 
+  //where the HTML gets rendered
     return (
       <div>
         <div className="HeaderContainer">
@@ -246,10 +257,27 @@ class Page extends React.Component {
             <div className="CentreJustified">
                   <div className="SearchContainer">
                   <Menu>
+
                     <label>Country</label>
                     <input></input>
                     <label>News Topic</label>
                     <input ></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
+                    <label>Filter Option Item</label>
+                    <input></input>
                     <label>Filter Option Item</label>
                     <input></input>
                   </Menu>

@@ -18,6 +18,12 @@ class ResultsPage extends React.Component {
 
   //eventually will map the multiple resultcards and render
   render() {
+    if(this.props.GeneralStats.totalDocCnt==0){
+      return(
+      <div>
+        No Results Found.
+      </div>)
+    }
     return (
       <div className="ResultsContainer">
         <ResultsTable Title={"News"} NewsItems={this.props.NewsItems}/>

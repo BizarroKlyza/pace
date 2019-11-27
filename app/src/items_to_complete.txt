@@ -1,0 +1,5 @@
+Features To Complete
+1. Login
+2. Filters for search
+3. Heat Map
+4. Bring Copy from other pages (footer) to website
